@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-w7qyfq92%%xl8%(s@$avm9&llh57uehvfn2ukwfm(75aj100v%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'roads',
+    'leaflet',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +78,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        "ENGINE": "django.contrib.gis.db.backends.spatialite",
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
